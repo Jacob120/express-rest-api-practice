@@ -1,29 +1,19 @@
-import express from 'express';
+const express = require('express');
+const cors = require('cors');
+
+const testimonials = require('./routes/testimonials.routes.js');
+const concerts = require('./routes/concerts.routes.js');
+const seats = require('./routes/seats.routes.js');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
-const db = [
-  { id: 1, author: 'John Doe', text: 'This company is worth every coin!' },
-  {
-    id: 2,
-    author: 'Amanda Doe',
-    text: 'They really know how to make you happy.',
-  },
-];
-app.get('/testimonials', (req, res) => {
-  res.json(db);
-});
-
-app.get('/testimonials/:id', (req, res) => {
-  res.json(db.find((data) => data.id == req.params.id));
-});
-
-app.get('/testimonials/random', (req, res) => {
-  res.json(db);
-});
+app.use('/api', testimonials);
+app.use('/api', concerts);
+app.use('/api', seats);
 
 app.use((req, res) => {
   res.status(404).send('404 not found...');
