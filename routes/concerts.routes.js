@@ -8,12 +8,12 @@ router.route('/concerts').get((req, res) => {
   res.json(db.concerts);
 });
 
-router.route('/concerts/:id').get((req, res) => {
-  res.json(db.concerts.find((data) => data.id == req.params.id));
-});
-
 router.route('/concerts/random').get((req, res) => {
   res.json(db.concerts[Math.floor(Math.random() * db.concerts.length)]);
+});
+
+router.route('/concerts/:id').get((req, res) => {
+  res.json(db.concerts.find((data) => data.id == req.params.id));
 });
 
 router.route('/concerts').post((req, res) => {
