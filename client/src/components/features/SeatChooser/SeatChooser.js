@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Progress, Alert } from 'reactstrap';
 import {
   getSeats,
-  loadSeatsRequest,
   getRequests,
+  loadSeatsRequest,
 } from '../../../redux/seatsRedux';
 import './SeatChooser.scss';
 
@@ -15,12 +15,6 @@ const SeatChooser = ({ chosenDay, chosenSeat, updateSeat }) => {
 
   useEffect(() => {
     dispatch(loadSeatsRequest());
-    let timer;
-
-    timer = setInterval(() => {
-      dispatch(loadSeatsRequest());
-    }, 120000); // refresh seats every 2 minutes
-    return () => clearInterval(timer);
   }, [dispatch]);
 
   const isTaken = (seatId) => {
