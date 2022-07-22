@@ -46,7 +46,8 @@ io.on('connection', (socket) => {
 
 // connects our backend code with the database
 mongoose.connect(
-  'mongodb+srv://jacob120:lp92rOiVYFyNnBUp@cluster0.2vwyi.mongodb.net/NewWaveDB'
+  'mongodb+srv://jacob120:lp92rOiVYFyNnBUp@cluster0.2vwyi.mongodb.net/NewWaveDB',
+  { useNewUrlParser: true }
 );
 
 const db = mongoose.connection;
