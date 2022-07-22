@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
 mongoose.connect(
   'mongodb+srv://jacob120:lp92rOiVYFyNnBUp@cluster0.2vwyi.mongodb.net/?retryWrites=true&w=majority'
 );
+
 const db = mongoose.connection;
 
 db.once('open', () => {
