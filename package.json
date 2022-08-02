@@ -13,13 +13,16 @@
     "mongoose": "5.7.1",
     "nodemon": "^2.0.19",
     "onchange": "6.1.0",
+    "serve": "^14.0.1",
     "socket.io": "2.2.0",
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "cd client && yarn install && yarn build",
-    "test": "set NODE_ENV=test&& mocha \"./{,!(node_modules|client)/**/}*.test.js\"",
-    "test:watch": "onchange \"./**/*.js\" -i -k -- yarn test"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "yarn build"
   }
 }
