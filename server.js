@@ -49,11 +49,12 @@ io.on('connection', (socket) => {
 // connects our backend code with the database
 
 const NODE_ENV = process.env.NODE_ENV;
+const ATLAS_USERNAME = process.env.ATLAS_USERNAME;
+const ATLAS_PASSWORD = process.env.ATLAS_PASSWORD;
 let dbUri = '';
 
 if (NODE_ENV === 'production')
-  dbUri =
-    'mongodb+srv://jacob120:lp92rOiVYFyNnBUp@cluster0.2vwyi.mongodb.net/NewWaveDB';
+  dbUri = `mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@cluster0.2vwyi.mongodb.net/NewWaveDB`;
 else if (NODE_ENV === 'test') dbUri = 'mongodb://localhost:27017/companyDBtest';
 else dbUri = 'mongodb://localhost:27017/NewWaveDB';
 
