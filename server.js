@@ -53,8 +53,7 @@ const ATLAS_USERNAME = process.env.ATLAS_USERNAME;
 const ATLAS_PASSWORD = process.env.ATLAS_PASSWORD;
 let dbUri = '';
 
-if (NODE_ENV === 'production')
-  dbUri = `mongodb+srv://${ATLAS_USERNAME}:${ATLAS_PASSWORD}@cluster0.2vwyi.mongodb.net/NewWaveDB`;
+if (NODE_ENV === 'production') dbUri = process.env.DB_URL;
 else if (NODE_ENV === 'test') dbUri = 'mongodb://localhost:27017/companyDBtest';
 else dbUri = 'mongodb://localhost:27017/NewWaveDB';
 
