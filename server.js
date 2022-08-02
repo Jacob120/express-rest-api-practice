@@ -49,8 +49,6 @@ io.on('connection', (socket) => {
 // connects our backend code with the database
 
 const NODE_ENV = process.env.NODE_ENV;
-const ATLAS_USERNAME = process.env.ATLAS_USERNAME;
-const ATLAS_PASSWORD = process.env.ATLAS_PASSWORD;
 let dbUri = '';
 
 if (NODE_ENV === 'production') dbUri = process.env.DB_URL;
